@@ -4,4 +4,6 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 
 import "/src/assets/css/main.css";
-// import "/src/assets/js/main.js";
+
+// assets/vendor/glightbox/css/glightbox.min.css
+// assets/vendor/glightbox/js/glightbox.min.js

@@ -1,8 +1,78 @@
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 
 const Header: FC = () => {
+  const headerRef = useRef<HTMLElement | null>(null);
+  const mobileNavToggleBtnRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    function toggleScrolled() {
+      if (headerRef.current) {
+        const selectBody = document.querySelector("body");
+        const selectHeader = headerRef.current;
+        if (
+          !selectHeader.classList.contains("scroll-up-sticky") &&
+          !selectHeader.classList.contains("sticky-top") &&
+          !selectHeader.classList.contains("fixed-top")
+        )
+          return;
+
+        if (selectBody) {
+          window.scrollY > 100
+            ? selectBody.classList.add("scrolled")
+            : selectBody.classList.remove("scrolled");
+        }
+      }
+    }
+    document.addEventListener("scroll", toggleScrolled);
+    window.addEventListener("load", toggleScrolled);
+  }, []);
+
+  useEffect(() => {
+    if (mobileNavToggleBtnRef.current) {
+      const mobileNavToggleBtn = mobileNavToggleBtnRef.current;
+      const bodyElement = document.querySelector("body");
+
+      function mobileNavToogle() {
+        if (bodyElement) {
+          bodyElement.classList.toggle("mobile-nav-active");
+          mobileNavToggleBtn.classList.toggle("bi-list");
+          mobileNavToggleBtn.classList.toggle("bi-x");
+        }
+      }
+      mobileNavToggleBtn.addEventListener("click", mobileNavToogle);
+
+      document.querySelectorAll("#navmenu a").forEach((navmenu) => {
+        navmenu.addEventListener("click", () => {
+          if (document.querySelector(".mobile-nav-active")) {
+            mobileNavToogle();
+          }
+        });
+      });
+
+      document
+        .querySelectorAll(".navmenu .toggle-dropdown")
+        .forEach((navmenu) => {
+          navmenu.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const target = e.currentTarget as HTMLElement;
+            const parent = target.parentNode as HTMLElement;
+            const nextSibling = parent.nextElementSibling as HTMLElement;
+
+            parent.classList.toggle("active");
+            nextSibling.classList.toggle("dropdown-active");
+
+            e.stopImmediatePropagation();
+          });
+        });
+    }
+  }, []);
   return (
-    <header id="header" className="header d-flex align-items-center sticky-top">
+    <header
+      id="header"
+      className="header d-flex align-items-center sticky-top"
+      ref={headerRef}
+    >
       <div className="container-fluid position-relative d-flex align-items-center justify-content-between">
         <a
           href="index.html"
@@ -78,7 +148,10 @@ const Header: FC = () => {
               <a href="contact.html">Contact</a>
             </li>
           </ul>
-          <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          <i
+            className="mobile-nav-toggle d-xl-none bi bi-list"
+            ref={mobileNavToggleBtnRef}
+          ></i>
         </nav>
         <div className="header-social-links">
           <a href="#" className="twitter">
