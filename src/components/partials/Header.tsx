@@ -1,8 +1,8 @@
 import { FC, useEffect, useRef } from "react";
+import BurgerMenuButton from "../buttons/BurgerMenuButton";
 
 const Header: FC = () => {
   const headerRef = useRef<HTMLElement | null>(null);
-  const mobileNavToggleBtnRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     function toggleScrolled() {
@@ -27,57 +27,14 @@ const Header: FC = () => {
     window.addEventListener("load", toggleScrolled);
   }, []);
 
-  useEffect(() => {
-    if (mobileNavToggleBtnRef.current) {
-      const mobileNavToggleBtn = mobileNavToggleBtnRef.current;
-      const bodyElement = document.querySelector("body");
-
-      function mobileNavToogle() {
-        if (bodyElement) {
-          bodyElement.classList.toggle("mobile-nav-active");
-          mobileNavToggleBtn.classList.toggle("bi-list");
-          mobileNavToggleBtn.classList.toggle("bi-x");
-        }
-      }
-      mobileNavToggleBtn.addEventListener("click", mobileNavToogle);
-
-      document.querySelectorAll("#navmenu a").forEach((navmenu) => {
-        navmenu.addEventListener("click", () => {
-          if (document.querySelector(".mobile-nav-active")) {
-            mobileNavToogle();
-          }
-        });
-      });
-
-      document
-        .querySelectorAll(".navmenu .toggle-dropdown")
-        .forEach((navmenu) => {
-          navmenu.addEventListener("click", (e) => {
-            e.preventDefault();
-
-            const target = e.currentTarget as HTMLElement;
-            const parent = target.parentNode as HTMLElement;
-            const nextSibling = parent.nextElementSibling as HTMLElement;
-
-            parent.classList.toggle("active");
-            nextSibling.classList.toggle("dropdown-active");
-
-            e.stopImmediatePropagation();
-          });
-        });
-    }
-  }, []);
   return (
     <header
       id="header"
       className="header d-flex align-items-center sticky-top"
       ref={headerRef}
     >
-      <div className="container-fluid position-relative d-flex align-items-center justify-content-between">
-        <a
-          href="index.html"
-          className="logo d-flex align-items-center me-auto me-xl-0"
-        >
+      <div className="container position-relative d-flex align-items-center justify-content-between">
+        <a href="/" className="logo d-flex align-items-center me-auto me-xl-0">
           {/* <img src="assets/img/logo.png" alt=""> */}
           <i className="bi bi-camera"></i>
           <h1 className="sitename">Empire's Future</h1>
@@ -90,7 +47,7 @@ const Header: FC = () => {
               </a>
             </li>
             <li>
-              <a href="about.html">About</a>
+              <a href="#about">About</a>
             </li>
             <li className="dropdown">
               <a href="gallery.html">
@@ -148,10 +105,7 @@ const Header: FC = () => {
               <a href="contact.html">Contact</a>
             </li>
           </ul>
-          <i
-            className="mobile-nav-toggle d-xl-none bi bi-list"
-            ref={mobileNavToggleBtnRef}
-          ></i>
+          <BurgerMenuButton />
         </nav>
         <div className="header-social-links">
           <a href="#" className="twitter">
