@@ -1,7 +1,8 @@
 import { FC, useEffect, useRef } from "react";
+import { NullableDiv } from "../../types/html-nullables";
 
 const PreLoader: FC = () => {
-  const preloaderRef = useRef<HTMLDivElement | null>(null);
+  const preloaderRef = useRef<NullableDiv>(null);
 
   useEffect(() => {
     if (preloaderRef.current) {

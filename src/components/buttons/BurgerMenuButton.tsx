@@ -1,40 +1,55 @@
 import { FC, useEffect, useRef } from "react";
+import { NullableButton, NullableElement } from "../../types/html-nullables";
 
 const BurgerMenuButton: FC = () => {
-  const mobileNavToggleBtnRef = useRef<HTMLButtonElement | null>(null);
+  const mobileNavToggleBtnRef = useRef<NullableButton>(null);
 
   useEffect(() => {
-    if (mobileNavToggleBtnRef.current) {
-      const mobileNavToggleBtn = mobileNavToggleBtnRef.current;
-      const bodyElement: HTMLElement = document.body;
+    const mobileNavToggleBtn: NullableButton = mobileNavToggleBtnRef.current;
 
-      function mobileNavToogle() {
-        bodyElement.classList.toggle("mobile-nav-active");
-        mobileNavToggleBtn.classList.toggle("bi-list");
-        mobileNavToggleBtn.classList.toggle("bi-x");
-      }
-      mobileNavToggleBtn.addEventListener("click", mobileNavToogle);
+    if (!mobileNavToggleBtn) return;
 
-      document.querySelectorAll("#navmenu a").forEach((navmenu): void => {
-        navmenu.addEventListener("click", (): void => {
-          if (document.querySelector(".mobile-nav-active")) {
-            mobileNavToogle();
-          }
-        });
+    const bodyElement: HTMLElement = document.body;
+
+    const mobileNavToggle = () => {
+      bodyElement.classList.toggle("mobile-nav-active");
+      mobileNavToggleBtn.classList.toggle("bi-list");
+      mobileNavToggleBtn.classList.toggle("bi-x");
+    };
+
+    mobileNavToggleBtn.addEventListener("click", mobileNavToggle);
+
+    const navLinks = document.querySelectorAll("#navmenu a");
+    navLinks.forEach((navmenu) => {
+      navmenu.addEventListener("click", () => {
+        if (document.querySelector(".mobile-nav-active")) {
+          mobileNavToggle();
+        }
       });
-    }
-  }, [mobileNavToggleBtnRef]);
+    });
+
+    return () => {
+      mobileNavToggleBtn.removeEventListener("click", mobileNavToggle);
+      navLinks.forEach((navmenu) => {
+        navmenu.removeEventListener("click", mobileNavToggle);
+      });
+    };
+  }, []);
 
   useEffect(() => {
-    const toggleDropdown = (e: Event): void => {
+    const toggleDropdown = (e: Event) => {
       e.preventDefault();
 
       const target = e.currentTarget as HTMLElement;
       const parent = target.parentNode as HTMLElement;
-      const nextSibling = parent.nextElementSibling as HTMLElement;
+      const nextSibling = parent?.nextElementSibling as NullableElement;
 
-      parent.classList.toggle("active");
-      nextSibling.classList.toggle("dropdown-active");
+      if (parent) {
+        parent.classList.toggle("active");
+      }
+      if (nextSibling) {
+        nextSibling.classList.toggle("dropdown-active");
+      }
 
       e.stopImmediatePropagation();
     };

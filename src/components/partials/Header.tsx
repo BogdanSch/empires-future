@@ -1,31 +1,38 @@
 import { FC, useEffect, useRef } from "react";
+import { NullableElement } from "../../types/html-nullables";
+
 import BurgerMenuButton from "../buttons/BurgerMenuButton";
 
 const Header: FC = () => {
-  const headerRef = useRef<HTMLElement | null>(null);
+  const headerRef = useRef<NullableElement>(null);
 
   useEffect(() => {
     function toggleScrolled() {
-      if (headerRef.current) {
-        const selectBody = document.querySelector("body");
-        const selectHeader = headerRef.current;
-        if (
-          !selectHeader.classList.contains("scroll-up-sticky") &&
-          !selectHeader.classList.contains("sticky-top") &&
-          !selectHeader.classList.contains("fixed-top")
-        )
-          return;
+      if (!headerRef.current) return;
 
-        if (selectBody) {
-          window.scrollY > 100
-            ? selectBody.classList.add("scrolled")
-            : selectBody.classList.remove("scrolled");
-        }
+      const selectBody = document.body;
+      const selectHeader = headerRef.current;
+      if (
+        !selectHeader.classList.contains("scroll-up-sticky") &&
+        !selectHeader.classList.contains("sticky-top") &&
+        !selectHeader.classList.contains("fixed-top")
+      )
+        return;
+
+      if (selectBody) {
+        window.scrollY > 100
+          ? selectBody.classList.add("scrolled")
+          : selectBody.classList.remove("scrolled");
       }
     }
     document.addEventListener("scroll", toggleScrolled);
     window.addEventListener("load", toggleScrolled);
-  }, []);
+
+    return () => {
+      document.removeEventListener("scroll", toggleScrolled);
+      window.removeEventListener("load", toggleScrolled);
+    };
+  }, [headerRef]);
 
   return (
     <header
