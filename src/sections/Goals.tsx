@@ -26,7 +26,7 @@ const Goals: FC = () => {
       <div className="page-title aos-init aos-animate" data-aos="fade">
         <div className="heading">
           <div className="row d-flex align-items-center justify-content-center text-center">
-            <div className="goals__group col-lg-6 order-2 order-lg-1">
+            <div className="goals__group col-lg-5 order-2 order-lg-1">
               <h2>Unite the Galaxy</h2>
               <p className="mb-0">
                 The Galactic Empire stands as a beacon of strength, order, and
