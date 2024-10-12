@@ -1,17 +1,32 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 
 import Section from "../components/Section";
 import Image from "../components/Image";
 
-import StarDestroyerImage from "/public/assets/img/star-destroyer.png";
+import StarDestroyerImage from "/public/assets/img/star-destroyer.webp";
+const PARALLAX_SCROLL_STRENGTH = 0.7;
 
 const Goals: FC = () => {
+  const [offsetY, setOffsetY] = useState(0);
+
+  const handleScroll = () => {
+    setOffsetY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <Section sectionName="goals" containerType="container">
+    <Section sectionName="goals" containerType="container" id="goals">
       <div className="page-title aos-init aos-animate" data-aos="fade">
         <div className="heading">
-          <div className="row d-flex justify-content-center text-center">
-            <div className="col-lg-8">
+          <div className="row d-flex align-items-center justify-content-center text-center">
+            <div className="goals__group col-lg-6 order-2 order-lg-1">
               <h2>Unite the Galaxy</h2>
               <p className="mb-0">
                 The Galactic Empire stands as a beacon of strength, order, and
@@ -25,11 +40,16 @@ const Goals: FC = () => {
                 Join Us.
               </a>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-5 order-1 order-lg-2">
               <Image
-                className="d-block w-100"
+                className="goals__image d-block w-100"
                 src={StarDestroyerImage}
                 alt="Empire's Star Destroyer Ship"
+                style={{
+                  transform: `translateY(${
+                    offsetY * PARALLAX_SCROLL_STRENGTH
+                  }px)`,
+                }}
               />
             </div>
           </div>

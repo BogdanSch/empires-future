@@ -1,0 +1,32 @@
+.reasons {
+    padding-top: 0 !important;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 12px;
+        // padding: 0;
+    }
+
+    &__item {
+        @include flex-column();
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 240px;
+        height: 100%;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+        overflow: hidden;
+
+        &-icon {
+            color: $accent;
+            font-size: 2rem;
+        }
+
+        &:hover {
+            transform: translate(0, -4px);
+            box-shadow: $card-hover-shadow;
+        }
+    }
+}

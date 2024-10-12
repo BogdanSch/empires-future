@@ -1,0 +1,11 @@
+.header {
+    .image.logo {
+        animation: spin 10s ease-in-out infinite;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
