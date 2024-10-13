@@ -68,7 +68,7 @@ const Header: FC = () => {
               </a>
               <ul>
                 <li>
-                  <a href="#recruitment">Recruitment Process</a>
+                  <a href="#recruitmentProcess">Recruitment Process</a>
                 </li>
                 <li>
                   <a href="#recruit">Recruit</a>

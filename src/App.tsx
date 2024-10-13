@@ -8,6 +8,7 @@ import PreLoader from "./components/loader/PreLoader";
 
 import Goals from "./sections/Goals";
 import Reasons from "./sections/Reasons";
+import RecruitmentProcess from "./sections/RecruitmentProcess";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -26,6 +27,7 @@ const App: FC = () => {
       <main className="main">
         <Goals />
         <Reasons />
+        <RecruitmentProcess />
       </main>
       <Footer />
       <ScrollTop />

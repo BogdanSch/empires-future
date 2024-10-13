@@ -8,6 +8,22 @@
     flex-direction: column;
 }
 
+@mixin section-decor {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 80%;
+        height: 1px;
+        background-color: $secondary;
+    }
+}
+
 $accent: #C8102E;
 $secondary: #333333;
 $gold-500: #D4AF37;
@@ -17,3 +33,4 @@ $card-hover-shadow: rgba(67, 67, 255, 0.344) 0px 7px 29px 0px;
 @import "./templates/header.scss";
 @import "./templates/sections/goals.scss";
 @import "./templates/sections/reasons.scss";
+@import "./templates/sections/recruitmentProcess.scss";
