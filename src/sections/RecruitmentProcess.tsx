@@ -1,5 +1,4 @@
 import { FC } from "react";
-
 import Section from "../components/Section";
 
 const RecruitmentProcess: FC = () => {
@@ -24,78 +23,46 @@ const RecruitmentProcess: FC = () => {
               <ul className="list-inline items">
                 <li className="list-inline-item items-list">
                   <div className="px-4">
-                    <div className="event-date badge bg-info">2 June</div>
-                    <h5 className="pt-2">Event One</h5>
+                    <div className="event-date badge bg-info">Day 0</div>
+                    <h5 className="pt-2">Application & Screening</h5>
                     <p className="text-muted">
-                      It will be as simple as occidental in fact it will be
-                      Occidental Cambridge friend
+                      Submit your application to join the Galactic Empire. Your
+                      background will be carefully reviewed to ensure you meet
+                      the basic qualifications.
                     </p>
-                    <div>
-                      <a
-                        href="#"
-                        data-mdb-ripple-init
-                        className="btn btn-primary btn-sm"
-                      >
-                        Read more
-                      </a>
-                    </div>
                   </div>
                 </li>
                 <li className="list-inline-item items-list">
                   <div className="px-4">
-                    <div className="event-date badge bg-success">5 June</div>
-                    <h5 className="pt-2">Event Two</h5>
+                    <div className="event-date badge bg-success">Day 2</div>
+                    <h5 className="pt-2">Initial Fitness Test</h5>
                     <p className="text-muted">
-                      Everyone realizes why a new common language one could
-                      refuse translators.
+                      A series of physical assessments will evaluate your
+                      strength, agility, and stamina to determine your
+                      capability to serve.
                     </p>
-                    <div>
-                      <a
-                        href="#"
-                        data-mdb-ripple-init
-                        className="btn btn-primary btn-sm"
-                      >
-                        Read more
-                      </a>
-                    </div>
                   </div>
                 </li>
                 <li className="list-inline-item items-list">
                   <div className="px-4">
-                    <div className="event-date badge bg-danger">7 June</div>
-                    <h5 className="pt-2">Event Three</h5>
+                    <div className="event-date badge bg-danger">Day 2-30</div>
+                    <h5 className="pt-2">Advanced Training</h5>
                     <p className="text-muted">
-                      If several languages coalesce the grammar of the resulting
-                      simple and regular
+                      Undergo tactical and combat training in a variety of
+                      imperial disciplines. This phase will test your resolve
+                      and loyalty.
                     </p>
-                    <div>
-                      <a
-                        href="#"
-                        data-mdb-ripple-init
-                        className="btn btn-primary btn-sm"
-                      >
-                        Read more
-                      </a>
-                    </div>
                   </div>
                 </li>
                 <li className="list-inline-item items-list">
                   <div className="px-4">
-                    <div className="event-date badge bg-warning">8 June</div>
-                    <h5 className="pt-2">Event Four</h5>
+                    <div className="event-date badge bg-warning">Day 31</div>
+                    <h5 className="pt-2">Graduation</h5>
                     <p className="text-muted">
-                      Languages only differ in their pronunciation and their
-                      most common words.
+                      Complete the final evaluation and prove your loyalty.
+                      Successful recruits are honored with the rank of Imperial
+                      Officer.
                     </p>
-                    <div>
-                      <a
-                        href="#"
-                        data-mdb-ripple-init
-                        className="btn btn-primary btn-sm"
-                      >
-                        Read more
-                      </a>
-                    </div>
                   </div>
                 </li>
               </ul>
