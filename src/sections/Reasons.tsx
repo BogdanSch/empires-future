@@ -7,15 +7,17 @@ const Reasons: FC = () => {
       <div className="page-title aos-init aos-animate" data-aos="fade">
         <div className="row d-flex align-items-center justify-content-center text-center">
           <div className="resons__group col-lg-12">
-            <h2>Why Join the Galactic Empire?</h2>
-            <p>
-              The Empire offers unparalleled opportunities for those seeking to
-              make a difference. Whether it’s advancing your career, gaining
-              access to the galaxy’s most advanced technologies, or serving
-              alongside the galaxy's finest, the rewards of joining are
-              infinite. Here’s why millions have pledged their loyalty to the
-              Emperor:
-            </p>
+            <div className="text-content">
+              <h2>Why Join the Galactic Empire?</h2>
+              <p>
+                The Empire offers unparalleled opportunities for those seeking
+                to make a difference. Whether it’s advancing your career,
+                gaining access to the galaxy’s most advanced technologies, or
+                serving alongside the galaxy's finest, the rewards of joining
+                are infinite. Here’s why millions have pledged their loyalty to
+                the Emperor:
+              </p>
+            </div>
           </div>
           <ul className="reasons__list text-center mt-4">
             <li className="card reasons__item">

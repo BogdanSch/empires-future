@@ -1,33 +1,36 @@
 @mixin flex-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 @mixin flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin section-decor {
-    position: relative;
+  position: relative;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
-        width: 80%;
-        height: 1px;
-        background-color: $secondary;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 80%;
+    height: 1px;
+    background-color: $secondary;
+  }
 }
 
-$accent: #C8102E;
+$accent: #c8102e;
 $secondary: #333333;
-$gold-500: #D4AF37;
+$gold-500: #d4af37;
+$white-400: #e9ecef;
+$white-500: #dee2e6;
 $card-hover-shadow: rgba(67, 67, 255, 0.344) 0px 7px 29px 0px;
+$dark-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 
 @import "./templates/general.scss";
 @import "./templates/header.scss";

@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from "react";
 
 import Section from "../components/Section";
-import Image from "../components/Image";
+import Image from "../components/images/Image";
 
 import StarDestroyerImage from "/public/assets/img/star-destroyer.webp";
 const PARALLAX_SCROLL_STRENGTH = 0.7;

@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef } from "react";
 import { NullableElement } from "../../types/html-nullables";
 
-import Image from "../Image";
+import Image from "../images/Image";
 import BurgerMenuButton from "../buttons/BurgerMenuButton";
 import EmpireLogoIcon from "/assets/img/Galactic_Empire_Logo.png";
 
@@ -79,7 +79,7 @@ const Header: FC = () => {
               <a href="#reasons">Reasons</a>
             </li>
             <li>
-              <a href="#map">Map</a>
+              <a href="#empireMap">Map</a>
             </li>
             <li>
               <a href="#testimonials">Testimonials</a>

@@ -9,6 +9,7 @@ import PreLoader from "./components/loader/PreLoader";
 import Goals from "./sections/Goals";
 import Reasons from "./sections/Reasons";
 import RecruitmentProcess from "./sections/RecruitmentProcess";
+import EmpireMap from "./sections/EmpireMap";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -28,6 +29,7 @@ const App: FC = () => {
         <Goals />
         <Reasons />
         <RecruitmentProcess />
+        <EmpireMap />
       </main>
       <Footer />
       <ScrollTop />

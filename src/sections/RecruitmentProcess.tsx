@@ -4,19 +4,22 @@ import Section from "../components/Section";
 const RecruitmentProcess: FC = () => {
   return (
     <Section
-      sectionName="recruitment-process"
+      sectionName="recruitment-process section-decor-upper"
       containerType="container"
       id="recruitmentProcess"
+      isDecorated={true}
     >
       <div className="page-title aos-init aos-animate" data-aos="fade">
         <div className="row d-flex align-items-center justify-content-center text-center">
           <div className="recruitment-process__group col-lg-12">
-            <h2>Your Journey to Becoming an Imperial Officer</h2>
-            <p>
-              Joining the Empire is a structured and rewarding journey. Each
-              recruit undergoes comprehensive training and evaluation to ensure
-              they are ready to serve. Here’s what you can expect:
-            </p>
+            <div className="text-content">
+              <h2>Your Journey to Becoming an Imperial Officer</h2>
+              <p>
+                Joining the Empire is a structured and rewarding journey. Each
+                recruit undergoes comprehensive training and evaluation to
+                ensure they are ready to serve. Here’s what you can expect:
+              </p>
+            </div>
           </div>
           <div className="col-lg-12">
             <div className="horizontal-timeline">
