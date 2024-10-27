@@ -4,7 +4,7 @@ type SectionProps = {
   sectionName: string;
   children: ReactNode;
   containerType: string;
-  isDecorated: boolean;
+  isDecorated?: boolean;
   [key: string]: any;
 };
 
@@ -12,7 +12,7 @@ const Section: FC<SectionProps> = ({
   sectionName,
   children,
   containerType,
-  isDecorated,
+  isDecorated = false,
   ...rest
 }: SectionProps) => {
   return (

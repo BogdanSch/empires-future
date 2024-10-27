@@ -23,14 +23,19 @@
     background-color: $secondary;
   }
 }
-
+//colors
 $accent: #c8102e;
 $secondary: #333333;
 $gold-500: #d4af37;
 $white-400: #e9ecef;
 $white-500: #dee2e6;
-$card-hover-shadow: rgba(67, 67, 255, 0.344) 0px 7px 29px 0px;
+$card-dark-transparent: rgba(255, 255, 255, 0.06);
+//box-shadows
+$card-blue-shadow: rgba(67, 67, 255, 0.344) 0px 7px 29px 0px;
+$card-red-shadow: rgba(255, 67, 67, 0.344) 0px 7px 29px 0px;
 $dark-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+//border
+$white-500-solid: 1px solid $white-500;
 
 @import "./templates/general.scss";
 @import "./templates/header.scss";

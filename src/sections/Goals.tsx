@@ -36,7 +36,7 @@ const Goals: FC = () => {
                 joining the Empire, you become part of a grand design that
                 secures a brighter, more prosperous future for all.
               </p>
-              <a href="#contacts" className="cta-btn">
+              <a href="#recruit" className="cta-btn">
                 Join Us.
               </a>
             </div>

@@ -11,6 +11,7 @@ import Reasons from "./sections/Reasons";
 import RecruitmentProcess from "./sections/RecruitmentProcess";
 import EmpireMap from "./sections/EmpireMap";
 import Testimonials from "./sections/Testimonials";
+import Recruit from "./sections/Recruit";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -32,6 +33,7 @@ const App: FC = () => {
         <RecruitmentProcess />
         <EmpireMap />
         <Testimonials />
+        <Recruit />
       </main>
       <Footer />
       <ScrollTop />
