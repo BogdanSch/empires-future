@@ -1,0 +1,153 @@
+@-webkit-keyframes background-color {
+  0% {
+    background: -webkit-gradient(linear, left top, left bottom, from(#000428), to(#004683));
+    background: linear-gradient(to bottom, #000428, #004683);
+  }
+  25% {
+    background: linear-gradient(135deg, #1a4223, #5ee95e);
+  }
+  50% {
+    background: -webkit-gradient(linear, left top, left bottom, from(#421a31), to(#e95ed2));
+    background: linear-gradient(to bottom, #421a31, #e95ed2);
+  }
+  100% {
+    background: linear-gradient(-135deg, #fae37d, #881da8, #20668f);
+  }
+}
+@keyframes background-color {
+  0% {
+    background: -webkit-gradient(linear, left top, left bottom, from(#000428), to(#004683));
+    background: linear-gradient(to bottom, #000428, #004683);
+  }
+  25% {
+    background: linear-gradient(135deg, #1a4223, #5ee95e);
+  }
+  50% {
+    background: -webkit-gradient(linear, left top, left bottom, from(#421a31), to(#e95ed2));
+    background: linear-gradient(to bottom, #421a31, #e95ed2);
+  }
+  100% {
+    background: linear-gradient(-135deg, #fae37d, #881da8, #20668f);
+  }
+}
+.container .col-lg-4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  border: none;
+  background-color: inherit;
+}
+
+.card .face {
+  position: absolute;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  /* border-right: 1px solid #999;
+  border-bottom: 1px solid #999; */
+}
+
+.card .face.front-face,
+.card .face.back-face {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card .face.front-face .profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card .face.front-face .name {
+  letter-spacing: 2px;
+}
+
+.card .face.front-face .designation {
+  font-size: 0.8rem;
+  color: #ddd;
+  letter-spacing: 0.8px;
+}
+
+.card:hover .face.front-face {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.card .face.back-face {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  padding: 20px 30px;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.card .face.back-face .fa-quote-left {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 1.2rem;
+}
+
+.card .face.back-face .fa-quote-right {
+  position: absolute;
+  bottom: 35px;
+  right: 25px;
+  font-size: 1.2rem;
+}
+
+.card:hover .face.back-face {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+}
+
+@media (max-width: 991.5px) {
+  .col-lg-4 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+}
