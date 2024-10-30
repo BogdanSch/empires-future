@@ -25,10 +25,13 @@
 }
 //colors
 $accent: #c8102e;
+$accent-transparent: #c8102f7f;
 $secondary: #333333;
+$green-600: #00a624;
 $gold-500: #d4af37;
 $white-400: #e9ecef;
 $white-500: #dee2e6;
+$white-600: #a8a9ab;
 $card-dark-transparent: rgba(255, 255, 255, 0.06);
 //box-shadows
 $card-blue-shadow: rgba(67, 67, 255, 0.344) 0px 7px 29px 0px;
@@ -43,3 +46,4 @@ $white-500-solid: 1px solid $white-500;
 @import "./templates/sections/reasons.scss";
 @import "./templates/sections/recruitmentProcess.scss";
 @import "./templates/sections/testimonials.scss";
+@import "./templates/sections/recruit.scss";

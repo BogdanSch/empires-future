@@ -10,6 +10,7 @@ type SectionProps = {
 
 const Section: FC<SectionProps> = ({
   sectionName,
+  className,
   children,
   containerType,
   isDecorated = false,
@@ -17,7 +18,9 @@ const Section: FC<SectionProps> = ({
 }: SectionProps) => {
   return (
     <section
-      className={`${sectionName} ${isDecorated ? "section-decor-upper" : ""}`}
+      className={`${sectionName} ${className} ${
+        isDecorated ? "section-decor-upper" : ""
+      }`}
       {...rest}
     >
       <div className={containerType}>

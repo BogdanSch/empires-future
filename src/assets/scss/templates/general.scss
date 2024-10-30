@@ -20,9 +20,59 @@
   margin: 0 auto;
 }
 
+.buttons-group {
+  @include flex-row();
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.btn {
+  &-reset {
+    background-color: $secondary;
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 40px;
+    border: 0;
+    border-radius: 4px;
+    transition: 0.5s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
 .cta {
   &-btn {
     background-color: $accent !important;
+  }
+}
+
+.form {
+  &-control {
+    border-color: $secondary !important;
+    transition: all 0.7s ease;
+
+    &::-ms-input-placeholder {
+      color: $white-600 !important;
+    }
+
+    &:focus {
+      border-color: $accent-transparent !important;
+    }
+  }
+  &-select {
+    padding: 10px 15px;
+    background-color: var(--surface-color) !important;
+    box-shadow: none;
+    border-color: $secondary !important;
+    border-radius: 0;
+    transition: all 0.7s ease;
+
+    &:focus {
+      border-color: $accent-transparent !important;
+    }
   }
 }
 

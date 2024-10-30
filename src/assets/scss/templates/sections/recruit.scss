@@ -1,0 +1,63 @@
+.recruit {
+  position: relative;
+  overflow: visible; // Ensure overflow doesn’t hide the decoration
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    z-index: 0;
+    display: block;
+    width: 40%;
+    height: 60%;
+    background-image: url("/assets/img/storm-trooper.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    opacity: 0.4;
+  }
+
+  .contact-info {
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+    }
+
+    &__item {
+      @include flex-column();
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 240px;
+      height: 100%;
+      text-decoration: none;
+      transition: all 0.5s ease-in-out;
+      overflow: hidden;
+
+      &-link {
+        text-decoration: none;
+        color: $green-600;
+        transition: color 0.9s ease;
+
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+  }
+  .logo {
+    &-wrap {
+      @include flex-row();
+      justify-content: center;
+      align-items: center;
+      column-gap: 16px;
+
+      .image.logo {
+        display: block;
+        max-width: 10%;
+      }
+    }
+  }
+}

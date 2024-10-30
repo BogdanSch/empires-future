@@ -1,13 +1,17 @@
 .header {
-    width: 100%;
+  width: 100%;
 
-    .image.logo {
-        animation: spin 10s ease-in-out infinite;
-    }
+  .image.logo {
+    max-width: 100%;
+  }
 }
 
 @keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.image.logo {
+  animation: spin 10s ease-in-out infinite;
 }

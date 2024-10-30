@@ -1,9 +1,8 @@
 import { FC, useEffect, useRef } from "react";
 import { NullableElement } from "../../types/html-nullables";
 
-import Image from "../images/Image";
+import Logo from "../images/Logo";
 import BurgerMenuButton from "../buttons/BurgerMenuButton";
-import EmpireLogoIcon from "/assets/img/Galactic_Empire_Logo.png";
 
 const Header: FC = () => {
   const headerRef = useRef<NullableElement>(null);
@@ -44,11 +43,7 @@ const Header: FC = () => {
     >
       <div className="container position-relative d-flex align-items-center justify-content-between">
         <a href="/" className="logo d-flex align-items-center me-auto me-xl-0">
-          <Image
-            className="logo"
-            src={EmpireLogoIcon}
-            alt="Empire Logo White"
-          />
+          <Logo />
           <h1 className="sitename">Empire's Future</h1>
         </a>
         <nav id="navmenu" className="navmenu">
