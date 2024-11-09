@@ -100,6 +100,22 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .zoom {
+    &-image-container {
+      max-width: 100%;
+    }
+  }
+}
+
 .section-decor-upper {
   @include section-decor();
+}
+
+.modal {
+  &-image {
+    display: block;
+    width: 108px;
+    height: auto;
+  }
 }
