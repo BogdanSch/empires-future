@@ -13,23 +13,32 @@ import Logo from "../components/images/Logo";
 import Modal from "../components/modals/Modal";
 import ContactInfo from "./ContactInfo";
 
-import successIcon from "/assets/img/winner.png";
-import errorIcon from "/assets/img/error.png";
+import successIcon from "/assets/img/icons/winner.png";
+import errorIcon from "/assets/img/icons/error.png";
+
+type FormData = {
+  fullName: string;
+  planetOfOrigin: string;
+  email: string;
+  candidateExperience: string;
+  preferredRole: string;
+};
 
 const Recruit: FC = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     fullName: "",
     planetOfOrigin: "",
     email: "",
-    candidatExperience: "",
+    candidateExperience: "",
     preferredRole: "Stormtrooper",
   });
+
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const dispatch: AppDispatch = useDispatch();
   const showConfirmModal = useSelector(
     (state: RootState) => state.recruitNotificationModal.showConfirmModal
   );
-
   const showErrorModal = useSelector(
     (state: RootState) => state.recruitNotificationModal.showErrorModal
   );
@@ -50,19 +59,54 @@ const Recruit: FC = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    try {
-      const submissionResult = await submitSheetDBData(formData);
+    const newErrors = validateForm(formData);
+    setErrors(newErrors);
+    console.log(newErrors);
 
-      if (submissionResult) {
-        dispatch(setShowConfirmModal(true));
-        clearForm();
-      } else {
+    if (Object.keys(newErrors).length === 0) {
+      try {
+        const submissionResult = await submitSheetDBData(formData);
+
+        if (submissionResult) {
+          dispatch(setShowConfirmModal(true));
+          clearForm();
+        } else {
+          dispatch(setShowErrorModal(true));
+        }
+      } catch (error) {
         dispatch(setShowErrorModal(true));
+        console.error(error);
       }
-    } catch (error) {
-      dispatch(setShowErrorModal(true));
-      console.error(error);
+      console.log("Form submitted successfully!");
+    } else {
+      console.log("Form submission failed due to validation errors.");
     }
+  };
+
+  const validateForm = (formData: FormData): { [key: string]: string } => {
+    const errors: { [key: string]: string } = {};
+
+    if (!formData.fullName.trim()) {
+      errors.fullName = "Full name is required";
+    } else if (formData.fullName.length < 4) {
+      errors.fullName = "Full name must be at least 4 characters long";
+    }
+
+    if (!formData.planetOfOrigin.trim()) {
+      errors.planetOfOrigin = "Planet of origin is required";
+    } else if (formData.planetOfOrigin.length < 3) {
+      errors.planetOfOrigin =
+        "Planet of origin must contain at least 3 characters";
+    }
+
+    if (!formData.candidateExperience.trim()) {
+      errors.candidateExperience = "Candidate's experience is required";
+    } else if (formData.candidateExperience.length < 40) {
+      errors.candidateExperience =
+        "Experience description must be at least 40 characters long";
+    }
+
+    return errors;
   };
 
   const clearForm = (): void => {
@@ -70,7 +114,7 @@ const Recruit: FC = () => {
       fullName: "",
       planetOfOrigin: "",
       email: "",
-      candidatExperience: "",
+      candidateExperience: "",
       preferredRole: "Stormtrooper",
     });
   };
@@ -89,7 +133,7 @@ const Recruit: FC = () => {
           <div className="col-10 col-sm-8 col-lg-6">
             <form
               method="post"
-              className="php-email-form aos-init aos-animate"
+              className="php-email-form aos-init aos-animate needs-validation"
               data-aos="fade-up"
               data-aos-delay="300"
               onSubmit={handleSubmit}
@@ -113,6 +157,9 @@ const Recruit: FC = () => {
                     onChange={handleChange}
                     required={true}
                   />
+                  {errors.fullName && (
+                    <span className="invalid-feedback">{errors.fullName}</span>
+                  )}
                 </div>
                 <div className="col-md-6">
                   <input
@@ -125,6 +172,11 @@ const Recruit: FC = () => {
                     onChange={handleChange}
                     required={true}
                   />
+                  {errors.planetOfOrigin && (
+                    <span className="invalid-feedback">
+                      {errors.planetOfOrigin}
+                    </span>
+                  )}
                 </div>
                 <div className="col-md-12">
                   <input
@@ -141,14 +193,19 @@ const Recruit: FC = () => {
                 <div className="col-md-12">
                   <textarea
                     className="form-control"
-                    name="candidatExperience"
-                    id="candidatExperienceText"
+                    name="candidateExperience"
+                    id="candidateExperienceText"
                     rows={9}
                     placeholder="* Describe Your Combat Skills:"
-                    value={formData.candidatExperience}
+                    value={formData.candidateExperience}
                     onChange={handleChange}
                     required={true}
                   ></textarea>
+                  {errors.candidateExperience && (
+                    <span className="invalid-feedback">
+                      {errors.candidateExperience}
+                    </span>
+                  )}
                 </div>
                 <div className="col-md-12">
                   <h5 className="text-center">Choose your preferred role.</h5>
