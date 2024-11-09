@@ -32,11 +32,6 @@ const Recruit: FC = () => {
 
   const dispatch: AppDispatch = useDispatch();
 
-  // const [showModal, setShowModal] = useState<{ [key: string]: boolean }>({
-  //   showConfirmModal: false,
-  //   showErrorMessage: false,
-  // });
-
   const handleChange = (
     event: ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -54,16 +49,16 @@ const Recruit: FC = () => {
     event.preventDefault();
 
     try {
-      let submitionResult: Response = await submitSheetDBData(formData);
+      const submissionResult = await submitSheetDBData(formData);
 
-      if (submitionResult.ok) {
-        setShowConfirmModal(true);
+      if (submissionResult) {
+        dispatch(setShowConfirmModal(true));
         clearForm();
       } else {
-        setShowErrorModal(true);
+        dispatch(setShowErrorModal(true));
       }
     } catch (error) {
-      setShowErrorModal(true);
+      dispatch(setShowErrorModal(true));
       console.error(error);
     }
   };
@@ -95,6 +90,7 @@ const Recruit: FC = () => {
               data-aos="fade-up"
               data-aos-delay="300"
               onSubmit={handleSubmit}
+              id="recruitForm"
             >
               <div className="row gy-4">
                 <div className="col-md-12">
@@ -104,6 +100,7 @@ const Recruit: FC = () => {
                   <input
                     type="text"
                     name="fullName"
+                    id="fullName"
                     className="form-control"
                     placeholder="* Your Full Name:"
                     required={true}

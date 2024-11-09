@@ -7,7 +7,7 @@ type ModalProps = {
   title: string;
   show: boolean;
   text: string;
-  onHide: () => void; // Updated type for onHide
+  onHide: () => void;
 };
 
 export default function Modal({ id, title, text, show, onHide }: ModalProps) {
@@ -17,11 +17,11 @@ export default function Modal({ id, title, text, show, onHide }: ModalProps) {
     const modal = modalRef.current;
 
     if (modal) {
-      const modalInstance = new bootstrap.Modal(document.getElementById(id));
+      const modalInstance = new bootstrap.Modal(modal);
       if (show) modalInstance.show();
-      else modalInstance.hide(); // Hide modal if show is false
+      else modalInstance.hide();
     }
-  }, [id, show]);
+  }, [id, show, modalRef]);
 
   return (
     <div
