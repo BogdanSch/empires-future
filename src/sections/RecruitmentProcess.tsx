@@ -4,7 +4,7 @@ import Section from "../components/Section";
 const RecruitmentProcess: FC = () => {
   return (
     <Section
-      sectionName="recruitment-process section-decor-upper"
+      sectionName="recruitment-process"
       containerType="container"
       id="recruitmentProcess"
       isDecorated={true}
