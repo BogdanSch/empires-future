@@ -126,11 +126,10 @@ const Recruit: FC = () => {
         className="contact"
         containerType="container"
         id="recruit"
-        isDecorated={true}
       >
         <ContactInfo />
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div className="col-10 col-sm-8 col-lg-6">
+          <div className="recruit__action col-12 col-sm-8 col-lg-6">
             <form
               method="post"
               className="php-email-form aos-init aos-animate needs-validation"
@@ -235,7 +234,7 @@ const Recruit: FC = () => {
               </div>
             </form>
           </div>
-          <div className="col-lg-6">
+          <div className="recruit__details col-12 col-lg-6">
             <h2>Join the Empire Today</h2>
             <p className="lead">
               The future of the galaxy is in your hands. By enlisting in the

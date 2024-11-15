@@ -22,6 +22,12 @@
     height: 1px;
     background-color: $secondary;
   }
+  @media screen and (max-width: 600px) {
+    &::before {
+      width: 86%;
+      height: 2px;
+    }
+  }
 }
 //colors
 $accent: #c8102e;

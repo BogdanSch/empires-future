@@ -24,6 +24,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 12px;
+      align-items: center;
+      margin-bottom: 60px;
     }
 
     &__item {
@@ -63,5 +65,18 @@
   }
   .invalid-feedback {
     display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .recruit {
+    &::before {
+      left: 0;
+      width: 80%;
+      height: 70%;
+    }
+    &__details {
+      text-align: center;
+    }
   }
 }
