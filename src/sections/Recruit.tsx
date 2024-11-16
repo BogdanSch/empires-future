@@ -10,7 +10,7 @@ import {
 
 import Section from "../components/Section";
 import Logo from "../components/images/Logo";
-import Modal from "../components/modals/Modal";
+import ModalComponent from "../components/modals/Modal";
 import ContactInfo from "./ContactInfo";
 
 import successIcon from "/assets/img/icons/winner.png";
@@ -246,7 +246,7 @@ const Recruit: FC = () => {
           </div>
         </div>
       </Section>
-      <Modal
+      <ModalComponent
         id="confirm-modal"
         title="Confirmation message"
         text="Your request was successfully sent!"
@@ -255,7 +255,7 @@ const Recruit: FC = () => {
         show={showConfirmModal}
         onHide={() => dispatch(setShowConfirmModal(false))}
       />
-      <Modal
+      <ModalComponent
         id="error-modal"
         title="Error message"
         text="There was an error, please try again later!"

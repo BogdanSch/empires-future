@@ -1,9 +1,8 @@
 import { useEffect, useRef } from "react";
-import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js";
+import Modal from "bootstrap/js/dist/modal";
 import { NullableDiv } from "../../types/html-nullables";
 
 import Image from "../images/Image";
-
 type ModalProps = {
   id: string;
   title: string;
@@ -14,7 +13,7 @@ type ModalProps = {
   onHide: () => void;
 };
 
-export default function Modal({
+export default function ModalComponent({
   id,
   title,
   text,
@@ -29,7 +28,7 @@ export default function Modal({
     const modal = modalRef.current;
 
     if (modal) {
-      const modalInstance = new bootstrap.Modal(modal);
+      const modalInstance = new Modal(modal);
       if (show) modalInstance.show();
       else modalInstance.hide();
     }
