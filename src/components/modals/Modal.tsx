@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 import Modal from "bootstrap/js/dist/modal";
 import { NullableDiv } from "../../types/html-nullables";
 
@@ -13,7 +13,7 @@ type ModalProps = {
   onHide: () => void;
 };
 
-export default function ModalComponent({
+const ModalComponent: FC<ModalProps> = ({
   id,
   title,
   text,
@@ -21,7 +21,7 @@ export default function ModalComponent({
   iconAlt = "",
   show,
   onHide,
-}: ModalProps) {
+}: ModalProps) => {
   const modalRef = useRef<NullableDiv>(null);
 
   useEffect(() => {
@@ -74,4 +74,6 @@ export default function ModalComponent({
       </div>
     </div>
   );
-}
+};
+
+export default ModalComponent;

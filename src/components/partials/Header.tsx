@@ -3,6 +3,7 @@ import { NullableElement } from "../../types/html-nullables";
 
 import Logo from "../images/Logo";
 import BurgerMenuButton from "../buttons/BurgerMenuButton";
+import SocialLinks from "../SocialLinks";
 
 const Header: FC = () => {
   const headerRef = useRef<NullableElement>(null);
@@ -83,18 +84,7 @@ const Header: FC = () => {
           <BurgerMenuButton />
         </nav>
         <div className="header-social-links">
-          <a href="#" className="twitter">
-            <i className="bi bi-twitter-x"></i>
-          </a>
-          <a href="#" className="facebook">
-            <i className="bi bi-facebook"></i>
-          </a>
-          <a href="#" className="instagram">
-            <i className="bi bi-instagram"></i>
-          </a>
-          <a href="#" className="linkedin">
-            <i className="bi bi-linkedin"></i>
-          </a>
+          <SocialLinks />
         </div>
       </div>
     </header>
